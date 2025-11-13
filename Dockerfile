@@ -13,6 +13,12 @@ RUN comfy node install --exit-on-fail comfyui-florence2@1.0.6
 RUN comfy node install --exit-on-fail comfy-pack
 RUN comfy node install --exit-on-fail comfyui-rmbg@2.9.3
 RUN comfy node install --exit-on-fail rgthree-comfy
+RUN pip install imageio
+RUN for dir in /comfyui/custom_nodes/*; do \
+  if [ -f "$dir/requirements.txt" ]; then \
+    pip install -r "$dir/requirements.txt"; \
+  fi; \
+done
 
 # download models into comfyui
 RUN comfy model download --url https://huggingface.co/Kijai/flux-fp8/resolve/main/flux-vae-bf16.safetensors --relative-path models/vae --filename flux-vae-bf16.safetensors
