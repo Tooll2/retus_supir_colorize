@@ -11,6 +11,7 @@ RUN comfy node install --exit-on-fail comfyui-supir@1.0.2
 RUN comfy node install --exit-on-fail comfyui-florence2@1.0.6
 RUN comfy node install --exit-on-fail comfyui-rmbg@2.9.3
 RUN comfy node install --exit-on-fail rgthree-comfy
+RUN comfy node install --exit-on-fail comfy-pack
 RUN for dir in /comfyui/custom_nodes/*; do \
   if [ -f "$dir/requirements.txt" ]; then \
     pip install -r "$dir/requirements.txt"; \
@@ -24,7 +25,7 @@ RUN comfy model download --url https://huggingface.co/Kijai/SUPIR_pruned/resolve
 RUN comfy model download --url https://huggingface.co/Kijai/SUPIR_pruned/resolve/main/SUPIR-v0Q_fp16.safetensors --relative-path models/checkpoints --filename SUPIR-v0Q_fp16.safetensors
 RUN comfy model download --url https://huggingface.co/grilder/Jib_Mix_Realistic_XL/resolve/main/jibMixRealisticXL_v10Lightning46Step.safetensors --relative-path models/checkpoints --filename jibMixRealisticXL_v10Lightning46Step.safetensors
 RUN comfy model download --url https://huggingface.co/lllyasviel/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors --relative-path models/clip --filename t5xxl_fp16.safetensors
-RUN comfy model download --url https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors --relative-path models/unet --filename flux1-dev-kontext_fp8_scaled
+RUN comfy model download --url https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors --relative-path models/unet --filename flux1-dev-kontext_fp8_scaled.safetensors
 
 # copy all input data (like images or videos) into comfyui (uncomment and adjust if needed)
 # COPY input/ /comfyui/input/
