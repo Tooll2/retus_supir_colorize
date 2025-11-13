@@ -4,16 +4,13 @@ FROM runpod/worker-comfyui:5.5.0-base
 # install custom nodes into comfyui
 RUN comfy node install --exit-on-fail wavespeed@1.1.8
 RUN comfy node install --exit-on-fail comfyui-custom-scripts@1.2.5
-RUN comfy node install --exit-on-fail virtuoso-nodes
 RUN comfy node install --exit-on-fail comfyui-post-processing-nodes@1.0.1
 RUN comfy node install --exit-on-fail comfyui-wd14-tagger@1.0.1
 RUN comfy node install --exit-on-fail comfyui-easy-use@1.3.4
 RUN comfy node install --exit-on-fail comfyui-supir@1.0.2
 RUN comfy node install --exit-on-fail comfyui-florence2@1.0.6
-RUN comfy node install --exit-on-fail comfy-pack
 RUN comfy node install --exit-on-fail comfyui-rmbg@2.9.3
 RUN comfy node install --exit-on-fail rgthree-comfy
-RUN pip install imageio
 RUN for dir in /comfyui/custom_nodes/*; do \
   if [ -f "$dir/requirements.txt" ]; then \
     pip install -r "$dir/requirements.txt"; \
