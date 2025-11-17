@@ -13,6 +13,11 @@ RUN comfy node install --exit-on-fail comfyui-rmbg@2.9.3
 RUN comfy node install --exit-on-fail rgthree-comfy
 RUN comfy node install --exit-on-fail comfy-pack
 RUN git clone https://github.com/chflame163/ComfyUI_LayerStyle_Advance /comfyui/custom_nodes/ComfyUI_LayerStyle_Advance
+RUN comfy node install --exit-on-fail was-node-suite-comfyui
+RUN comfy node install --exit-on-fail comfyui_layerstyle
+RUN git clone https://github.com/wallish77/wlsh_nodes /comfyui/custom_nodes/wlsh_nodes
+RUN git clone https://github.com/miaoshouai/ComfyUI-Miaoshouai-Tagger /comfyui/custom_nodes/ComfyUI-Miaoshouai-Tagger
+RUN comfy node install comfyui-impact-pack
 RUN for dir in /comfyui/custom_nodes/*; do \
   if [ -f "$dir/requirements.txt" ]; then \
     pip install -r "$dir/requirements.txt"; \
