@@ -12,6 +12,7 @@ RUN comfy node install --exit-on-fail comfyui-florence2@1.0.6
 RUN comfy node install --exit-on-fail comfyui-rmbg@2.9.3
 RUN comfy node install --exit-on-fail rgthree-comfy
 RUN comfy node install --exit-on-fail comfy-pack
+RUN git clone https://github.com/chflame163/ComfyUI_LayerStyle_Advance /comfyui/custom_nodes/ComfyUI_LayerStyle_Advance
 RUN for dir in /comfyui/custom_nodes/*; do \
   if [ -f "$dir/requirements.txt" ]; then \
     pip install -r "$dir/requirements.txt"; \
